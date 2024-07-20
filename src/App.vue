@@ -1,8 +1,29 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { Button } from './components/ui/button';
+import { useColorMode } from '@vueuse/core';
+import { Sun, Moon } from 'lucide-vue-next';
+import HelloWorld from './components/HelloWorld.vue';
+
+const mode = useColorMode();
+
+const toggleColorMode = () => {
+  if (mode.value === 'light') {
+    mode.value = 'dark';
+  } else {
+    mode.value = 'light';
+  }
+};
+
+
 </script>
 
 <template>
+
+<Button @click="toggleColorMode" variant="ghost">
+  <span v-if="mode === 'light'"><Moon /></span>
+  <span v-else><Sun /></span>
+</Button>
+
   <div class="flex justify-center">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
