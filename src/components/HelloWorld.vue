@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Button } from '@/components/ui/button'
+import { Button } from './ui/button';
 import { CircleDollarSign as Kowin } from 'lucide-vue-next';
 
 defineProps<{ msg: string }>()
